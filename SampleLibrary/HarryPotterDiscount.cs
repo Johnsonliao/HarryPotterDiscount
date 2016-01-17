@@ -13,10 +13,12 @@ namespace SampleLibrary
             return quantity * price;
         }
 
+        public int BuyBookDiscount(int quantity, int price, int discount)
+        {
+            return 0;
+        }
 
-
-
-
+ 
 
 
     }
