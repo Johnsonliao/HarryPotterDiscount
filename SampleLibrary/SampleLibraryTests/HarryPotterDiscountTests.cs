@@ -54,7 +54,20 @@ namespace SampleLibrary.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod()]
+        public void BuyFirst_And_Second_And_third_fourth_BookTest()
+        {
+            var target = new HarryPotterDiscount();
+            var quantity = 4;
+            var price = 100;
+            var discount = 80;
 
+            var expected = 320;
+
+            var actual = target.BuyBookDiscount(quantity, price, discount);
+
+            Assert.AreEqual(expected, actual);
+        }
 
 
     }
