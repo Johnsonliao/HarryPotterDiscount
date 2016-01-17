@@ -11,13 +11,15 @@ namespace SampleLibrary.Tests
     public class HarryPotterDiscountTests
     {
         [TestMethod()]
-        public void GetBuyFirstBookTest()
+        public void BuyFirstBookTest()
         {
             var target = new HarryPotterDiscount();
+            var quantity = 1;
+            var price = 100;
 
             var expected = 100;
 
-            var actual = target.BuyFirstBook();
+            var actual = target.BuyFirstBook(quantity, price);
 
             Assert.AreEqual(expected, actual);
         }
