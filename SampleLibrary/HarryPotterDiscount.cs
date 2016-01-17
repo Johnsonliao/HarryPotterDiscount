@@ -15,10 +15,11 @@ namespace SampleLibrary
 
         public int BuyBookDiscount(int quantity, int price, int discount)
         {
-            return 0;
+            return ((quantity * price) * discount) / 100;
         }
 
- 
+
+
 
 
     }
