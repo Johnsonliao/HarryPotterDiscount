@@ -13,13 +13,15 @@ namespace SampleLibrary.Tests
         [TestMethod()]
         public void BuyFirstBookTest()
         {
-            var target = new HarryPotterDiscount();
-            var quantity = 1;
-            var price = 100;
-
+            var bookList = new List<Book>
+            {
+                new Book { BookID = 1, Price = 100 }
+            };
             var expected = 100;
 
-            var actual = target.BuyFirstBook(quantity, price);
+            var target = new HarryPotterDiscount(bookList);
+
+            var actual = target.BuyBookDiscountMixing();
 
             Assert.AreEqual(expected, actual);
         }
@@ -27,14 +29,17 @@ namespace SampleLibrary.Tests
         [TestMethod()]
         public void BuyFirst_And_SecondBookTest()
         {
-            var target = new HarryPotterDiscount();
-            var quantity = 2;
-            var price = 100;
-            var discount = 95;
+            var bookList = new List<Book>
+            {
+                new Book { BookID = 1, Price = 100 },
+                new Book { BookID = 2, Price = 100 }
+            };
 
             var expected = 190;
 
-            var actual = target.BuyBookDiscount(quantity, price, discount);
+            var target = new HarryPotterDiscount(bookList);
+
+            var actual = target.BuyBookDiscountMixing();
 
             Assert.AreEqual(expected, actual);
         }
@@ -42,14 +47,18 @@ namespace SampleLibrary.Tests
         [TestMethod()]
         public void BuyFirst_And_Second_And_third_BookTest()
         {
-            var target = new HarryPotterDiscount();
-            var quantity = 3;
-            var price = 100;
-            var discount = 90;
+            var bookList = new List<Book>
+            {
+                new Book { BookID = 1, Price = 100 },
+                new Book { BookID = 2, Price = 100 },
+                new Book { BookID = 3, Price = 100 }
+            };
 
             var expected = 270;
 
-            var actual = target.BuyBookDiscount(quantity, price, discount);
+            var target = new HarryPotterDiscount(bookList);
+
+            var actual = target.BuyBookDiscountMixing();
 
             Assert.AreEqual(expected, actual);
         }
@@ -57,14 +66,60 @@ namespace SampleLibrary.Tests
         [TestMethod()]
         public void BuyFirst_And_Second_And_third_fourth_BookTest()
         {
-            var target = new HarryPotterDiscount();
-            var quantity = 4;
-            var price = 100;
-            var discount = 80;
+            var bookList = new List<Book>
+            {
+                new Book { BookID = 1, Price = 100 },
+                new Book { BookID = 2, Price = 100 },
+                new Book { BookID = 3, Price = 100 },
+                new Book { BookID = 4, Price = 100 }
+            };
 
             var expected = 320;
 
-            var actual = target.BuyBookDiscount(quantity, price, discount);
+            var target = new HarryPotterDiscount(bookList);
+
+            var actual = target.BuyBookDiscountMixing();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void BuyAllHarryBookTest()
+        {
+            var bookList = new List<Book>
+            {
+                new Book { BookID = 1, Price = 100 },
+                new Book { BookID = 2, Price = 100 },
+                new Book { BookID = 3, Price = 100 },
+                new Book { BookID = 4, Price = 100 },
+                new Book { BookID = 5, Price = 100 }
+            };
+
+            var expected = 375;
+
+            var target = new HarryPotterDiscount(bookList);
+
+            var actual = target.BuyBookDiscountMixing();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void BuyRepeatHarryBookTest()
+        {
+            var bookList = new List<Book>
+            {
+                new Book { BookID = 1, Price = 100 },
+                new Book { BookID = 2, Price = 100 },
+                new Book { BookID = 3, Price = 100 },
+                new Book { BookID = 3, Price = 100 }
+            };
+
+            var expected = 370;
+
+            var target = new HarryPotterDiscount(bookList);
+
+            var actual = target.BuyBookDiscountMixing();
 
             Assert.AreEqual(expected, actual);
         }
