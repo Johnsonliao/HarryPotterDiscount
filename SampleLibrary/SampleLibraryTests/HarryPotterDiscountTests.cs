@@ -125,5 +125,26 @@ namespace SampleLibrary.Tests
         }
 
 
+        [TestMethod()]
+        public void BuyRepeatHarryBookTest2()
+        {
+            var bookList = new List<Book>
+            {
+                new Book { BookID = 1, Price = 100 },
+                new Book { BookID = 2, Price = 100 },
+                new Book { BookID = 2, Price = 100 },
+                new Book { BookID = 3, Price = 100 },
+                new Book { BookID = 3, Price = 100 }
+            };
+
+            var expected = 460;
+
+            var target = new HarryPotterDiscount(bookList);
+
+            var actual = target.BuyBookDiscountMixing();
+
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
